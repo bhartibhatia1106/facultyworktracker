@@ -5,5 +5,20 @@
     <div class="card yellow">Pending: 3</div>
     <div class="card red">Not Completed: 2</div>
   </div>
-  <div class="chart"> <!-- Placeholder --> Workload Chart Here </div>
+
 </div>
+
+<div class="dashboard">
+  <div class="dropdown-container">
+    <h2 style="justify-content: center; text-align: center;" [(ngModel)]="chartMode" (change)="updateChart()">Productivity</h2>
+  </div>
+
+<div style="width: 600px; height: 300px; margin: auto;">
+  <canvas baseChart
+          [data]="chartData"
+          [options]="chartOptions"
+          [type]="'bar'">
+  </canvas>
+</div>
+</div>
+

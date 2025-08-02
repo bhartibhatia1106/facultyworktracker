@@ -21,19 +21,19 @@
     </select>
   </div>
 
-  <!-- Add Task -->
+  <!-- Add Task Form -->
   <form (ngSubmit)="addTask()" #taskForm="ngForm" class="add-task">
     <input type="text" [(ngModel)]="newTask.subject" name="subject" placeholder="Subject" required />
-
+    
     <select [(ngModel)]="newTask.type" name="type" required>
-      <option [selected]="!newTask.type" disabled>Type</option>
+      <option value="" disabled selected hidden>Type</option>
       <option value="Lecture">Lecture</option>
       <option value="Practical">Practical</option>
       <option value="Meeting">Meeting</option>
     </select>
 
     <select [(ngModel)]="newTask.teacher" name="teacher" required>
-      <option [selected]="!newTask.teacher" disabled>Assign Teacher</option>
+      <option value="" disabled selected hidden>Assign Teacher</option>
       <option *ngFor="let t of teachers" [value]="t">{{ t }}</option>
     </select>
 
@@ -59,6 +59,7 @@
         <th>Date</th>
         <th>Time</th>
         <th>Status</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -69,6 +70,9 @@
         <td>{{ task.date }}</td>
         <td>{{ task.time }}</td>
         <td>{{ task.status }}</td>
+        <td>
+          <button *ngIf="task.status === 'pending'" (click)="markAsCompleted(task)">✅ Mark Completed</button>
+        </td>
       </tr>
     </tbody>
   </table>

@@ -13,3 +13,10 @@
 .green { background-color: #4caf50; }
 .yellow { background-color: #ffc107; }
 .red { background-color: #f44336; }
+
+.chart-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}

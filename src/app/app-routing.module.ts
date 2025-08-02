@@ -8,50 +8,31 @@ import { TaskLogComponent } from './schedule/task-log/task-log.component';
 import { WorkSchedulesComponent } from './schedule/work-schedules/work-schedules.component';
 import { ProfileComponent } from './settings/profile/profile.component';
 import { ThemeComponent } from './settings/theme/theme.component';
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 
 
 
 const routes: Routes = [
-   {
-    path: "dashboard",
-    component: DashboardComponent
-  },
-  {
-    path: "work-schedules",
-    component: WorkSchedulesComponent
-  },
-  {
-    path: "task",
-    component: TaskLogComponent
-  },
-  {
-    path: "profile",
-    component: ProfileComponent
-  },
-  {
-    path: "theme",
-    component: ThemeComponent
-  },
-  {
-    path:'login',
-    component: LoginComponent
+  // Redirect base path to login first
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
 
-  },
+  // Auth routes
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+
+  // Main layout routes
   {
-    path:'register',
-    component: RegisterComponent
-
-  },
-  
-   {
-    path:'header',
-    component: HeaderComponent
-
-  },
-  { path: '', 
-    redirectTo: 'login', 
-    pathMatch: 'full' },
-
+    path: '',
+    component: MainLayoutComponent,
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'task', component: TaskLogComponent },
+      { path: 'work-schedules', component: WorkSchedulesComponent },
+      { path: 'profile', component: ProfileComponent },
+      { path: 'theme', component: ThemeComponent },
+      // more routes as needed
+    ]
+  }
 ];
 
 @NgModule({
