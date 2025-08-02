@@ -1,0 +1,13 @@
+<h2>Theme Settings</h2>
+
+<label>
+  <input type="radio" name="theme" value="light" [(ngModel)]="selectedTheme">
+  Light
+</label>
+
+<label>
+  <input type="radio" name="theme" value="dark" [(ngModel)]="selectedTheme">
+  Dark
+</label>
+
+<button (click)="applyTheme()">Apply Theme</button>

@@ -1,0 +1,15 @@
+.status-cards {
+  display: flex;
+  gap: 15px;
+  margin: 15px 0;
+}
+.card {
+  flex: 1;
+  padding: 20px;
+  font-weight: bold;
+  color: white;
+  border-radius: 8px;
+}
+.green { background-color: #4caf50; }
+.yellow { background-color: #ffc107; }
+.red { background-color: #f44336; }

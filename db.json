@@ -1,0 +1,41 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "subject": "Math",
+      "type": "Lecture",
+      "teacher": "Mrs. Sharma",
+      "date": "2025-08-03",
+      "time": "10:00 AM",
+      "status": "upcoming"
+    },
+    {
+      "id": "aee5",
+      "subject": "DSA",
+      "type": "Lecture",
+      "teacher": "Mrs. Sharma",
+      "date": "2025-08-10",
+      "time": "00:00",
+      "status": "completed"
+    },
+    {
+      "id": "06f6",
+      "subject": "DSA",
+      "type": "Practical",
+      "teacher": "Mrs. Sharma",
+      "date": "2025-08-11",
+      "time": "01:49",
+      "status": "pending"
+    }
+  ],
+  "teachers": [
+    {
+      "id": "1",
+      "name": "Mrs. Sharma"
+    },
+    {
+      "id": "2",
+      "name": "Mr. Verma"
+    }
+  ]
+}
