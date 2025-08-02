@@ -1,0 +1,40 @@
+<h1 id="main">Register</h1>
+<div class="container">
+  <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
+    
+    <div>
+      <label for="name">Full Name</label>
+      <input type="text" name="name" [(ngModel)]="name" required #nameRef="ngModel" placeholder="Enter your full name">
+      <div *ngIf="nameRef.invalid && nameRef.touched" class="error">
+        Name is required.
+      </div>
+    </div>
+
+    <div>
+      <label for="email">Email</label>
+      <input type="text" name="email" [(ngModel)]="email" required email #emailRef="ngModel" placeholder="Enter your email">
+      <div *ngIf="emailRef.invalid && emailRef.touched" class="error">
+        Valid email is required.
+      </div>
+    </div>
+
+    <div>
+      <label for="password">Password</label>
+      <input type="password" name="password" [(ngModel)]="password" required minlength="8" #passRef="ngModel" placeholder="Create a password">
+      <div *ngIf="passRef.invalid && passRef.touched" class="error">
+        Password must be at least 8 characters.
+      </div>
+    </div>
+
+    <div>
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" name="confirmPassword" [(ngModel)]="confirmPassword" required #confirmRef="ngModel" placeholder="Re-enter your password">
+      <div *ngIf="password !== confirmPassword && confirmRef.touched" class="error">
+        Passwords do not match.
+      </div>
+    </div>
+
+    <button class="submit" type="submit" [disabled]="registerForm.invalid || password !== confirmPassword">REGISTER</button>
+  </form>
+</div>
+
