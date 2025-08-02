@@ -8,6 +8,7 @@ import { TaskLogComponent } from './schedule/task-log/task-log.component';
 import { WorkSchedulesComponent } from './schedule/work-schedules/work-schedules.component';
 import { ProfileComponent } from './settings/profile/profile.component';
 import { ThemeComponent } from './settings/theme/theme.component';
+import { TeachersComponent } from './faculty/teachers/teachers.component';
 
 
 
@@ -16,6 +17,7 @@ const routes: Routes = [
     path: "dashboard",
     component: DashboardComponent
   },
+
   {
     path: "work-schedules",
     component: WorkSchedulesComponent
@@ -51,7 +53,10 @@ const routes: Routes = [
   { path: '', 
     redirectTo: 'login', 
     pathMatch: 'full' },
-
+     {
+    path: "teachers",
+    component: TeachersComponent
+  },
 ];
 
 @NgModule({
