@@ -1,1 +1,34 @@
-<p>teachers works!</p>
+<div class="teacher-list-container">
+  <div
+    class="teacher-card"
+    *ngFor="let teacher of teachers; let i = index"
+    (click)="toggleDetails(i)"
+  >
+    <div class="teacher-name">
+      <h3>{{ teacher.name }}</h3>
+      <i
+        class="fa-solid"
+        [ngClass]="{
+          'fa-chevron-down': selectedIndex !== i,
+          'fa-chevron-up': selectedIndex === i
+        }"
+      ></i>
+    </div>
+
+    <div
+      class="teacher-details"
+      *ngIf="selectedIndex === i"
+    >
+      <p><i class="fa-solid fa-envelope"></i> {{ teacher.email }}</p>
+      <p><i class="fa-solid fa-phone"></i> {{ teacher.phone }}</p>
+      <p><i class="fa-solid fa-building"></i> Department: {{ teacher.department }}</p>
+      <p><i class="fa-solid fa-book"></i> Subjects: {{ teacher.subjects.join(', ') }}</p>
+      <p>
+        <i class="fa-solid fa-circle-check"></i> Status:
+        <span [ngClass]="teacher.status === 'Active' ? 'active' : 'inactive'">
+          {{ teacher.status }}
+        </span>
+      </p>
+    </div>
+  </div>
+</div>

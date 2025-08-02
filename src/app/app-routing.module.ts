@@ -9,17 +9,40 @@ import { WorkSchedulesComponent } from './schedule/work-schedules/work-schedules
 import { ProfileComponent } from './settings/profile/profile.component';
 import { ThemeComponent } from './settings/theme/theme.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import { TeachersComponent } from './faculty/teachers/teachers.component';
 
 
 
 const routes: Routes = [
-  // Redirect base path to login first
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+   {
+    path: "dashboard",
+    component: DashboardComponent
+  },
 
+  {
+    path: "work-schedules",
+    component: WorkSchedulesComponent
+  },
+  {
+    path: "task",
+    component: TaskLogComponent
+  },
+  {
+    path: "profile",
+    component: ProfileComponent
+  },
+  {
+    path: "theme",
+    component: ThemeComponent
+  },
+  {
+    path:'login',
+    component: LoginComponent},
   // Auth routes
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-
+// Redirect base path to login first
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   // Main layout routes
   {
     path: '',
@@ -32,7 +55,25 @@ const routes: Routes = [
       { path: 'theme', component: ThemeComponent },
       // more routes as needed
     ]
-  }
+  },
+  {
+    path:'register',
+    component: RegisterComponent
+
+  },
+  
+   {
+    path:'header',
+    component: HeaderComponent
+
+  },
+  { path: '', 
+    redirectTo: 'login', 
+    pathMatch: 'full' },
+     {
+    path: "teachers",
+    component: TeachersComponent
+  },
 ];
 
 @NgModule({

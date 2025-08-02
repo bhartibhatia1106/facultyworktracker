@@ -13,7 +13,7 @@
       <div class="cell" *ngFor="let day of days">
         <div class="task" *ngIf="schedule[day] && schedule[day][time]">
           <strong>{{ schedule[day][time].subject }}</strong><br>
-          <span>{{ schedule[day][time].type }}</span>
+          <!-- <span>{{ schedule[day][time] }}</span> -->
         </div>
       </div>
     </div>

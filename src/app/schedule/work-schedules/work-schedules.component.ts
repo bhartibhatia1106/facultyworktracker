@@ -8,26 +8,57 @@ import { Component } from '@angular/core';
 export class WorkSchedulesComponent {
   days: string[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
   timeSlots: string[] = [
-    '9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM',
-    '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM'
+    '9:00 AM - 10:00 AM', '10:00 AM - 11:00 AM', '11:00 AM - 12:00 PM', '12:00 PM - 1:00 PM',
+    '1:00 PM - 2:00 PM', '2:00 PM - 3:00 PM', '3:00 PM - 4:00 PM'
   ];
 
-  // Sample schedule data
+  // Fixed type: time is now a string
   schedule: {
     [day: string]: {
-      [time: string]: { subject: string, type: string }
+      [time: string]: { subject: string,}
     }
   } = {
     Monday: {
-      '9:00 AM': { subject: 'Math', type: 'Lecture' },
-      '11:00 AM': { subject: 'Physics', type: 'Practical' }
-    },
-    Tuesday: {
-      '10:00 AM': { subject: 'Chemistry', type: 'Lecture' },
-      '2:00 PM': { subject: 'Staff Meeting', type: 'Meeting' }
-    },
-    Wednesday: {
-      '1:00 PM': { subject: 'Computer', type: 'Lecture' }
-    }
-  };
+      '9:00 AM - 10:00 AM': { subject: 'Maths Lecture' },
+      '10:00 AM - 11:00 AM': { subject: 'DSA Lecture' },
+      '11:00 AM - 12:00 PM': { subject: 'DBMS Lecture' },
+      '12:00 PM - 1:00 PM': {subject: 'BREAK'},
+      '1:00 PM - 2:00 PM':{subject: 'DSA LAB'},
+      '2:00 PM - 3:00 PM':{subject: 'DSA LAB'},
+      '3:00 PM - 4:00 PM':{subject: 'CNC Lecture'},
+  },
+  Tuesday: {
+      '9:00 AM - 10:00 AM': { subject: 'DSA Lecture' },
+      '10:00 AM - 11:00 AM': { subject: 'CNC Lecture' },
+      '11:00 AM - 12:00 PM': { subject: 'MATHS Lecture' },
+      '12:00 PM - 1:00 PM': {subject: 'BREAK'},
+      '1:00 PM - 2:00 PM':{subject: 'DBMS LAB'},
+      '2:00 PM - 3:00 PM':{subject: 'DBMS LAB'},
+      
+  },
+  Wednesday: {
+      '9:00 AM - 10:00 AM': { subject: 'Maths Lecture' },
+      '10:00 AM - 11:00 AM': { subject: 'Maths Lecture' },
+      '11:00 AM - 12:00 PM': { subject: 'DBMS Lecture' },
+      '12:00 PM - 1:00 PM': {subject: 'BREAK'},
+      
+  },
+  Thursday: {
+      '9:00 AM - 10:00 AM': { subject: 'CNC Lecture' },
+      '10:00 AM - 11:00 AM': { subject: 'CNC Lecture' },
+      '11:00 AM - 12:00 PM': { subject: 'DBMS Lecture' },
+      '12:00 PM - 1:00 PM': {subject: 'BREAK'},
+      '1:00 PM - 2:00 PM':{subject: 'MATHS Lecture'},
+      '2:00 PM - 3:00 PM':{subject: 'DSA Lecture'},
+      
+  },
+  Friday: {
+      '9:00 AM - 10:00 AM': { subject: 'CNC LAB' },
+      '10:00 AM - 11:00 AM': { subject: 'CNC LAB' },
+      '11:00 AM - 12:00 PM': { subject: 'DBMS Lecture' },
+      '12:00 PM - 1:00 PM': {subject: 'BREAK'},
+      '1:00 PM - 2:00 PM':{subject: 'DSA Lecture'},
+      '2:00 PM - 3:00 PM':{subject: 'CNC Lecture'},
+  },
+}
 }
