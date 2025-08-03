@@ -1,41 +1,194 @@
 {
-  "tasks": [
+  "users": [
     {
-      "id": "1",
-      "subject": "Math",
-      "type": "Lecture",
-      "teacher": "Mrs. Sharma",
-      "date": "2025-08-03",
-      "time": "10:00 AM",
-      "status": "upcoming"
-    },
-    {
-      "id": "aee5",
-      "subject": "DSA",
-      "type": "Lecture",
-      "teacher": "Mrs. Sharma",
-      "date": "2025-08-10",
-      "time": "00:00",
-      "status": "completed"
-    },
-    {
-      "id": "06f6",
-      "subject": "DSA",
-      "type": "Practical",
-      "teacher": "Mrs. Sharma",
-      "date": "2025-08-11",
-      "time": "01:49",
-      "status": "completed"
+      "id": 1,
+      "name": "Twinkle Sharma",
+      "email": "twinkle@example.com",
+      "password": "12345678",
+      "contact": "9876543210",
+      "dob": "2000-08-04"
     }
   ],
   "teachers": [
     {
-      "id": "1",
-      "name": "Mrs. Sharma"
+      "id": 1,
+      "name": "Ms. Sharma",
+      "subject": "Math",
+      "available": true,
+      "email": "sharma@example.com",
+      "phone": "9876543210",
+      "department": "Mathematics"
     },
     {
-      "id": "2",
-      "name": "Mr. Verma"
+      "id": 2,
+      "name": "Mr. Verma",
+      "subject": "Physics",
+      "available": false,
+      "email": "verma@example.com",
+      "phone": "9123456780",
+      "department": "Physics"
+    },
+    {
+      "id": 3,
+      "name": "Mr. Bajaj",
+      "subject": "Chemistry",
+      "available": true,
+      "email": "bajaj@example.com",
+      "phone": "9988776655",
+      "department": "Chemistry"
+    },
+    {
+      "id": 4,
+      "name": "Mr. Wadhwa",
+      "subject": "DSA",
+      "available": true,
+      "email": "wadhwa@example.com",
+      "phone": "9988445522",
+      "department": "Computer Science"
+    },
+    {
+      "id": 5,
+      "name": "Mr. Patil",
+      "subject": "SE",
+      "available": true,
+      "email": "patil@example.com",
+      "phone": "9090909090",
+      "department": "Software Engineering"
+    },
+    {
+      "id": 6,
+      "name": "Mr. Bhatia",
+      "subject": "Physics",
+      "available": true,
+      "email": "bhatia@example.com",
+      "phone": "9876501234",
+      "department": "Physics"
+    },
+    {
+      "id": 7,
+      "name": "Mr. Ahuja",
+      "subject": "Chemistry",
+      "available": true,
+      "email": "ahuja@example.com",
+      "phone": "9988123456",
+      "department": "Chemistry"
+    },
+    {
+      "id": 8,
+      "name": "Mr. Sachdev",
+      "subject": "DSA",
+      "available": true,
+      "email": "sachdev@example.com",
+      "phone": "9000001111",
+      "department": "Computer Science"
+    },
+    {
+      "id": 9,
+      "name": "Mr. Bakhtiani",
+      "subject": "SE",
+      "available": true,
+      "email": "bakhtiani@example.com",
+      "phone": "8888777766",
+      "department": "Software Engineering"
+    },
+    {
+      "id": 10,
+      "name": "Mr. Rupani",
+      "subject": "Math",
+      "available": true,
+      "email": "rupani@example.com",
+      "phone": "8111122233",
+      "department": "Mathematics"
     }
-  ]
+  ],
+  "tasks": [
+  {
+    "id": 101,
+    "subject": "Math",
+    "type": "Lecture",
+    "teacher": "Ms. Sharma",
+    "teacherId": 1,
+    "date": "2025-08-03",
+    "time": "10:00",
+    "status": "upcoming",
+    "hours": 2
+  },
+  {
+    "id": "799c",
+    "subject": "SE",
+    "type": "Practical",
+    "teacher": "Mr. Patil",
+    "teacherId": 5,
+    "date": "2025-08-01",
+    "time": "07:59",
+    "status": "completed",
+    "hours": 3
+  },
+  {
+    "id": "702a",
+    "subject": "Physics",
+    "type": "Lecture",
+    "teacher": "Mr. Bhatia",
+    "teacherId": 6,
+    "date": "2025-07-30",
+    "time": "11:00",
+    "status": "completed",
+    "hours": 1
+  },
+  {
+    "id": "703b",
+    "subject": "DSA",
+    "type": "Lecture",
+    "teacher": "Mr. Wadhwa",
+    "teacherId": 4,
+    "date": "2025-08-02",
+    "time": "13:00",
+    "status": "completed",
+    "hours": 2
+  },
+  {
+    "id": "704c",
+    "subject": "Chemistry",
+    "type": "Practical",
+    "teacher": "Mr. Ahuja",
+    "teacherId": 7,
+    "date": "2025-07-31",
+    "time": "09:00",
+    "status": "pending",
+    "hours": 1
+  },
+  {
+    "id": "705d",
+    "subject": "SE",
+    "type": "Lecture",
+    "teacher": "Mr. Bakhtiani",
+    "teacherId": 9,
+    "date": "2025-08-03",
+    "time": "15:00",
+    "status": "completed",
+    "hours": 2
+  },
+  {
+    "id": "706e",
+    "subject": "Math",
+    "type": "Lecture",
+    "teacher": "Mr. Rupani",
+    "teacherId": 10,
+    "date": "2025-07-29",
+    "time": "10:00",
+    "status": "completed",
+    "hours": 1
+  },
+  {
+    "id": "707f",
+    "subject": "DSA",
+    "type": "Lecture",
+    "teacher": "Mr. Sachdev",
+    "teacherId": 8,
+    "date": "2025-08-02",
+    "time": "14:00",
+    "status": "upcoming",
+    "hours": 2
+  }
+]
 }

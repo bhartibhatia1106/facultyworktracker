@@ -1,0 +1,15 @@
+<div *ngIf="teacher; else loading" class="teacher-details-container">
+  <h2>{{ teacher.name }}</h2>
+  <p><strong>Subject:</strong> {{ teacher.subject }}</p>
+  <p><strong>Status:</strong> 
+    <span [class.available]="teacher.available" [class.unavailable]="!teacher.available">
+      {{ teacher.available ? 'Available' : 'Unavailable' }}
+    </span>
+  </p>
+
+  <button>Edit</button>
+</div>
+
+<ng-template #loading>
+  <p>Loading teacher details...</p>
+</ng-template>

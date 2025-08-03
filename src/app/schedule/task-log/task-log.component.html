@@ -24,7 +24,7 @@
   <!-- Add Task Form -->
   <form (ngSubmit)="addTask()" #taskForm="ngForm" class="add-task">
     <input type="text" [(ngModel)]="newTask.subject" name="subject" placeholder="Subject" required />
-    
+
     <select [(ngModel)]="newTask.type" name="type" required>
       <option value="" disabled selected hidden>Type</option>
       <option value="Lecture">Lecture</option>
@@ -63,7 +63,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let task of filteredTasks" [class.overdue]="isOverdue(task)">
+      <tr *ngFor="let task of filteredTasks"
+          [ngClass]="{
+            'overdue': task.status === 'upcoming',
+            'completed-task': task.status === 'completed',
+            'pending-task': task.status === 'pending'
+          }">
         <td>{{ task.subject }}</td>
         <td>{{ task.type }}</td>
         <td>{{ task.teacher }}</td>
@@ -71,7 +76,9 @@
         <td>{{ task.time }}</td>
         <td>{{ task.status }}</td>
         <td>
-          <button *ngIf="task.status === 'pending'" (click)="markAsCompleted(task)">✅ Mark Completed</button>
+          <button *ngIf="task.status === 'pending'" (click)="markAsCompleted(task)">
+            Mark Completed
+          </button>
         </td>
       </tr>
     </tbody>

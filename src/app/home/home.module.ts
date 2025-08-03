@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { NgChartsModule } from 'ng2-charts';
+import { Router, RouterModule } from '@angular/router';
 
 
 
@@ -13,7 +14,9 @@ import { NgChartsModule } from 'ng2-charts';
   imports: [
     CommonModule,
     FormsModule,
-    NgChartsModule
-  ]
+    NgChartsModule,
+    RouterModule
+  ],
+  exports:[DashboardComponent]
 })
 export class HomeModule { }

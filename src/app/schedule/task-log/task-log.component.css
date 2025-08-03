@@ -42,12 +42,6 @@
   text-align: center;
 }
 
-.overdue {
-  background-color: #ffdddd;
-  font-weight: bold;
-  color: red;
-}
-
 .task-table button {
   padding: 4px 10px;
   background-color: #28a745;
@@ -60,4 +54,28 @@
 
 .task-table button:hover {
   background-color: #218838;
+}
+
+/* Status Styling */
+.overdue {
+  background-color: #ffdddd; /* Pink for upcoming */
+  font-weight: bold;
+  color: #333;
+}
+
+.completed-task {
+  background-color: #d4edda; /* Light green */
+  font-weight: bold;
+  color: #155724;
+}
+
+.pending-task {
+  background-color: #fff3cd; /* Light yellow */
+  font-weight: bold;
+  color: #856404;
+}
+
+/* Optional row hover */
+.task-table tr:hover {
+  background-color: #f1f1f1;
 }

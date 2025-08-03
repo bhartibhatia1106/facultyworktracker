@@ -1,34 +1,44 @@
-<div class="teacher-list-container">
-  <div
-    class="teacher-card"
-    *ngFor="let teacher of teachers; let i = index"
-    (click)="toggleDetails(i)"
-  >
-    <div class="teacher-name">
-      <h3>{{ teacher.name }}</h3>
-      <i
-        class="fa-solid"
-        [ngClass]="{
-          'fa-chevron-down': selectedIndex !== i,
-          'fa-chevron-up': selectedIndex === i
-        }"
-      ></i>
-    </div>
+<div class="teachers-container">
+  <h2>Teachers</h2>
 
+  <div class="filter">
+    <label for="subjectFilter">Filter by Subject:</label>
+    <select id="subjectFilter" [(ngModel)]="selectedSubject" (change)="filterTeachers()">
+      <option value="all">All</option>
+      <option *ngFor="let subject of subjects" [value]="subject">{{ subject }}</option>
+    </select>
+  </div>
+
+  <!-- List View -->
+  <div *ngIf="!selectedTeacher" class="teacher-cards">
     <div
-      class="teacher-details"
-      *ngIf="selectedIndex === i"
+      class="teacher-card"
+      *ngFor="let teacher of filteredTeachers"
+      (click)="showDetails(teacher)"
+      style="cursor: pointer;"
     >
-      <p><i class="fa-solid fa-envelope"></i> {{ teacher.email }}</p>
-      <p><i class="fa-solid fa-phone"></i> {{ teacher.phone }}</p>
-      <p><i class="fa-solid fa-building"></i> Department: {{ teacher.department }}</p>
-      <p><i class="fa-solid fa-book"></i> Subjects: {{ teacher.subjects.join(', ') }}</p>
-      <p>
-        <i class="fa-solid fa-circle-check"></i> Status:
-        <span [ngClass]="teacher.status === 'Active' ? 'active' : 'inactive'">
-          {{ teacher.status }}
+      <h3>{{ teacher.name }}</h3>
+      <p><strong>Subject:</strong> {{ teacher.subject }}</p>
+      <p><strong>Status:</strong>
+        <span [class.available]="teacher.available" [class.unavailable]="!teacher.available">
+          {{ teacher.available ? 'Available' : 'Unavailable' }}
         </span>
       </p>
     </div>
+  </div>
+
+  <!-- Details View -->
+  <div *ngIf="selectedTeacher" class="teacher-detail">
+    <button class="back-btn" (click)="backToList()">← Back</button>
+    <h2>{{ selectedTeacher.name }}</h2>
+    <p><strong>Subject:</strong> {{ selectedTeacher.subject }}</p>
+    <p><strong>Department:</strong> {{ selectedTeacher.department }}</p>
+    <p><strong>Email:</strong> {{ selectedTeacher.email }}</p>
+    <p><strong>Phone:</strong> {{ selectedTeacher.phone }}</p>
+    <p><strong>Status:</strong>
+      <span [class.available]="selectedTeacher.available" [class.unavailable]="!selectedTeacher.available">
+        {{ selectedTeacher.available ? 'Available' : 'Unavailable' }}
+      </span>
+    </p>
   </div>
 </div>

@@ -1,13 +1,30 @@
-<div class="profile">
-  <h2>Profile Info</h2>
-  <form>
+<div class="profile-container">
+  <h2>Your Profile</h2>
+
+  <form #profileForm="ngForm" (ngSubmit)="saveProfile()" novalidate>
+    
     <label>Name:</label>
-    <input type="text" [(ngModel)]="profile.name" name="name">
+    <input type="text" name="name" [(ngModel)]="profile.name" required #nameRef="ngModel" />
+    <div *ngIf="nameRef.invalid && nameRef.touched" class="error">Name is required.</div>
 
     <label>Email:</label>
-    <input type="email" [(ngModel)]="profile.email" name="email">
+    <input type="email" name="email" [(ngModel)]="profile.email" required email #emailRef="ngModel" />
+    <div *ngIf="emailRef.invalid && emailRef.touched" class="error">Valid email is required.</div>
 
-    <label>Department:</label>
-    <input type="text" [(ngModel)]="profile.department" name="department">
+    <label>Password:</label>
+    <input type="password" name="password" [(ngModel)]="profile.password" required minlength="8" #passRef="ngModel" />
+    <div *ngIf="passRef.invalid && passRef.touched" class="error">Password must be at least 8 characters.</div>
+
+    <label>Contact:</label>
+    <input type="text" name="contact" [(ngModel)]="profile.contact" required pattern="^[0-9]{10}$" #contactRef="ngModel" />
+    <div *ngIf="contactRef.invalid && contactRef.touched" class="error">
+      Contact must be exactly 10 digits.
+    </div>
+
+    <label>Date of Birth:</label>
+    <input type="date" name="dob" [(ngModel)]="profile.dob" required #dobRef="ngModel" />
+    <div *ngIf="dobRef.invalid && dobRef.touched" class="error">Date of birth is required.</div>
+
+    <button type="submit" [disabled]="profileForm.invalid">Save</button>
   </form>
 </div>

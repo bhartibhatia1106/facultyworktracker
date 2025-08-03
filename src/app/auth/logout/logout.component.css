@@ -1,0 +1,15 @@
+.logout-wrapper {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.logout-wrapper button {
+  background-color: #e53935;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 20px;
+}

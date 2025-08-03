@@ -1,24 +1,62 @@
-<div class="dashboard">
+<div class="dashboard"> 
   <h2>Dashboard</h2>
+
+  <!-- Status Cards -->
   <div class="status-cards">
-    <div class="card green">Completed: 8</div>
-    <div class="card yellow">Pending: 3</div>
-    <div class="card red">Not Completed: 2</div>
+    <div class="card green">Completed: {{ counts.completed }}</div>
+    <div class="card red">Pending: {{ counts.pending }}</div>
+    <div class="card yellow">Upcoming: {{ counts.upcoming }}</div>
   </div>
 
-</div>
-
-<div class="dashboard">
-  <div class="dropdown-container">
-    <h2 style="justify-content: center; text-align: center;" [(ngModel)]="chartMode" (change)="updateChart()">Productivity</h2>
+  <!-- Chart Mode -->
+  <div class="chart-section">
+    <label>
+      <input type="radio" name="mode" value="productivity" [(ngModel)]="chartMode" (change)="updateChart()"> Productivity
+    </label>
+    <label>
+      <input type="radio" name="mode" value="screentime" [(ngModel)]="chartMode" (change)="updateChart()"> Total Tasks
+    </label>
   </div>
 
-<div style="width: 600px; height: 300px; margin: auto;">
-  <canvas baseChart
-          [data]="chartData"
-          [options]="chartOptions"
-          [type]="'bar'">
-  </canvas>
-</div>
-</div>
+  <!-- Chart -->
+  <div class="chart-container">
+    <canvas baseChart [data]="chartData" [options]="chartOptions" [type]="'bar'"></canvas>
+  </div>
 
+  <!-- Weekly Summary -->
+  <div class="weekly-summary">
+    <h3>Weekly Summary Report</h3>
+    <div class="summary-cards usp-summary" style="justify-content: center;">
+      <div class="summary-card completion-rate" style="width: 300px;">
+        <h4>Weekly Completion Rate</h4>
+        <p>{{ weeklyCompletionRate | number:'1.0-2' }}%</p>
+        <div class="progress-bar">
+          <div class="progress-fill" [style.width.%]="weeklyCompletionRate"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Salary Section -->
+  <div class="salary-section">
+    <h3>Teacher Salaries</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Teacher</th>
+          <th>Subject</th>
+          <th>Total Hours</th>
+          <th>Salary (₹)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of teacherSalaries">
+          <td>{{ s.teacher }}</td>
+          <td>{{ s.subject }}</td>
+          <td>{{ s.totalHours }}</td>
+          <td>{{ s.salary | number }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { FormsModule } from '@angular/forms';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
 import { SettingsModule } from './settings/settings.module';
@@ -11,6 +10,9 @@ import { FacultyModule } from './faculty/faculty.module';
 import { HomeModule } from './home/home.module';
 import { NgChartsModule } from 'ng2-charts';
 import { LayoutModule } from './layout/layout.module';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { LayoutModule } from './layout/layout.module';
     FacultyModule,
     HomeModule,
     NgChartsModule,
-    LayoutModule
+    LayoutModule,
+    RouterModule,
+    HttpClientModule
     
   ],
   providers: [],

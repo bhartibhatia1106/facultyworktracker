@@ -12,17 +12,27 @@ export class RegisterComponent {
   email: string = '';
   password: string = '';
   confirmPassword: string = '';
+  dob: any;
+  contact: any;
+  http: any;
 
   constructor(private router: Router) {}
 
   onRegister(form: NgForm) {
-    if (form.invalid || this.password !== this.confirmPassword) {
-      alert('Please fix errors before submitting.');
-      return;
-    }
+  if (form.invalid || this.password.length < 8) return;
 
-    // Demo behavior: simulate registration
-    alert('Registration successful!');
-    this.router.navigate(['/login']); // route to login after registration
-  }
+  const newUser = {
+    name: this.name.trim(),
+    email: this.email.trim().toLowerCase(),
+    password: this.password.trim(),
+    contact: this.contact.trim(),
+    dob: this.dob
+  };
+
+  this.http.post("http://localhost:3000/users", newUser)
+    .subscribe(() => {
+      alert("Registered successfully!");
+      this.router.navigate(['/login']);
+    });
+}
 }

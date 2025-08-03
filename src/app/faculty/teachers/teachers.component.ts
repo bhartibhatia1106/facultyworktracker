@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 interface Teacher {
+  id: number;
   name: string;
+  subject: string;
+  available: boolean;
   email: string;
   phone: string;
   department: string;
-  subjects: string[];
-  status: 'Active' | 'Inactive';
 }
 
 @Component({
@@ -14,53 +16,36 @@ interface Teacher {
   templateUrl: './teachers.component.html',
   styleUrls: ['./teachers.component.css']
 })
-export class TeachersComponent {
-  teachers: Teacher[] = [
-    {
-      name: 'Dr. Ritu Sharma',
-      email: 'ritusharma@college.edu',
-      phone: '+91-9876543210',
-      department: 'Computer Science',
-      subjects: ['DBMS', 'Operating Systems'],
-      status: 'Active'
-    },
-    {
-      name: 'Prof. Manish Verma',
-      email: 'manishv@college.edu',
-      phone: '+91 99184 32710',
-      department: 'AI & Data Science',
-      subjects: ['DBMS', 'Ethical Hacking'],
-      status: 'Active'
-    },
-    {
-      name: 'Ms. Sneha Kulkarni',
-      email: 'sneha.kulkarni@college.edu',
-      phone: '+91 97821 44309',
-      department: 'Information Technology',
-      subjects: ['DSA', 'Networks'],
-      status: 'Active'
-    },
-     {
-      name: 'Mr. Arjun Patel',
-      email: 'arjunp@college.edu',
-      phone: '+91 98456 11022',
-      department: 'Electronics And Telecommunication',
-      subjects: ['Computer Networks', 'IOT'],
-      status: 'Active'
-    },
-    {
-      name: 'Ms. Tanvi Deshmukh',
-      email: 'tanvid@college.edu',
-      phone: '+91 98988 23455',
-      department: 'Computer Science',
-      subjects: ['Web development', 'Mobile app Development'],
-      status: 'Active'
-    }
-  ];
+export class TeachersComponent implements OnInit {
+  teachers: Teacher[] = [];
+  filteredTeachers: Teacher[] = [];
+  subjects: string[] = [];
+  selectedSubject: string = 'all';
+  selectedTeacher: Teacher | null = null;
 
-  selectedIndex: number | null = null;
+  constructor(private http: HttpClient) {}
 
-  toggleDetails(index: number) {
-    this.selectedIndex = this.selectedIndex === index ? null : index;
+  ngOnInit(): void {
+    this.http.get<Teacher[]>('http://localhost:3000/teachers').subscribe(data => {
+      this.teachers = data;
+      this.subjects = Array.from(new Set(data.map(t => t.subject)));
+      this.filterTeachers();
+    });
+  }
+
+  filterTeachers(): void {
+    this.filteredTeachers =
+      this.selectedSubject === 'all'
+        ? this.teachers
+        : this.teachers.filter(t => t.subject === this.selectedSubject);
+    this.selectedTeacher = null; // reset detail view on filter
+  }
+
+  showDetails(teacher: Teacher): void {
+    this.selectedTeacher = teacher;
+  }
+
+  backToList(): void {
+    this.selectedTeacher = null;
   }
 }
